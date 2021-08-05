@@ -141,47 +141,37 @@ class Renderer(object):
                 self.line(x1,y1,x2,y2)
 
     def fill(self):
-        contador1 = 0
-        contador2 = 0
         bandera = False
         arreglo = []
-        contador3 = 0
         x0,y0 = 0,0
         x1,y1 = 0,0
-
 
         for i in range(len(self.frame())): #filas
 
             for j in range(len(self.frame())): #cada valor fila
-                #print('ban',bandera)
-
-
+                #color diferente al bitmap
                 if((self.cl_color[2],self.cl_color[1],self.cl_color[0]) != (self.frame()[i][j][2],self.frame()[i][j][1],self.frame()[i][j][0]) ):
                     a=self.frame()[i][j][2],self.frame()[i][j][1],self.frame()[i][j][0]
 
-                    print('No es igual')
-                    arreglo.append([1,a])
+                    arreglo.append([1,a]) #evaluar cada valor con su color si son diferentes
                 else:
                      a=self.frame()[i][j][2],self.frame()[i][j][1],self.frame()[i][j][0]
                      arreglo.append([0,a])
-
-            #print('arreglo',arreglo)
+            #por cada linea
             for pos in range(len(arreglo)):
-                #print('asld',arreglo[pos])
                 if arreglo[pos][0] == 1:
                     if(bandera):
                             if(arreglo[pos][1]!=a):
                                 a = arreglo[pos][1]
                                 x0,y0 = pos,i
+
                             else:
-                                x1,y1 = pos,i
-                                #print(a[0]/255,a[1],a[2])
-                                self.glColor(a[0]/255,a[1]/255,a[2]/255)
-                                self.line(x0,y0,x1,y1)
+                                    x1,y1 = pos,i
+                                    self.glColor(a[0]/255,a[1]/255,a[2]/255)
+                                    self.line(x0,y0,x1,y1)
                     else:
                         a = arreglo[pos][1]
                         x0,y0 = pos,i
-
                 else:
                     if(x0!=0):
                         bandera = True
@@ -191,9 +181,6 @@ class Renderer(object):
             bandera = False
             x0,y0 = 0,0
             x1,y1 = 0,0
-        print(contador1)
-        print(contador2)
-
 
     def glFinish(self, filename):
         #bw means binary write
