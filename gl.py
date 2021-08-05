@@ -2,7 +2,16 @@ import struct
 from obj import Obj
 """
 Bryann Alfaro 19372
-SR1 - GRAFICAS POR COMPUTADORA
+LABORATORIO 1 - GRAFICAS POR COMPUTADORA
+Polígono 1: 30 puntos
+
+Polígono 2: 10 puntos
+
+Polígono 3: 10 puntos
+
+Polígono 4: 50 puntos
+
+Polígono 5: 30 puntos
 """
 def char(c):
     return struct.pack('=c',c.encode('ascii'))

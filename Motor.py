@@ -4,8 +4,6 @@ Graficas por computadora - Bryann Alfaro
 '''
 from gl import Renderer
 
-#division by zero
-#out of range
 r =  Renderer()
 r.glInit()
 r.glCreateWindow(800,800)
