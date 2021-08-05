@@ -1,6 +1,7 @@
 '''
 Universidad del Valle de Guatemala
 Graficas por computadora - Bryann Alfaro
+Laboratorio 1
 '''
 from gl import Renderer
 
